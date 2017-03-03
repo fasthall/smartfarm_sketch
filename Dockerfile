@@ -9,6 +9,5 @@ WORKDIR /smartfarm_sketch/
 
 ENV SMARTFARM /smartfarm_sketch
 
-ENTRYPOINT ["ls"]
-#ENTRYPOINT ["/smartfarm_sketch/sh"]
-#CMD ["build.sh"]
+ENTRYPOINT ["sh"]
+CMD ["build.sh", "main.cpp"]

@@ -1,7 +1,6 @@
 #include <Arduino.h>
 
 void setup() {
-
   Serial.begin(57600);
   pinMode(6, OUTPUT);
   digitalWrite(6, LOW);
