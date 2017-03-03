@@ -4,10 +4,10 @@ MAINTAINER Wei-Tsung Lin <fasthall@gmail.com>
 RUN apt-get update
 RUN apt-get install -y arduino-core git
 
-ENV SMARTFARM /smartfarm_sketch
+RUN mkdir /smartfarm_sketch
 
-COPY entrypoint.sh /
-WORKDIR /
+COPY ./ /smartfarm_sketch/
+WORKDIR /smartfarm_sketch/
 
 ENTRYPOINT ["sh"]
-CMD ["entrypoint.sh"]
+CMD ["build.sh", "sketch/main.cpp"]
