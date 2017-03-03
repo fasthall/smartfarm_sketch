@@ -2,12 +2,12 @@ FROM ubuntu:xenial
 MAINTAINER Wei-Tsung Lin <fasthall@gmail.com>
 
 RUN apt-get update
-RUN apt-get install -y arduino-core
-RUN mkdir /smartfarm_sketch
-COPY ./ /smartfarm_sketch/
-WORKDIR /smartfarm_sketch/
+RUN apt-get install -y arduino-core git
 
 ENV SMARTFARM /smartfarm_sketch
 
+COPY entrypoint.sh /
+WORKDIR /
+
 ENTRYPOINT ["sh"]
-CMD ["build.sh", "main.cpp"]
+CMD ["entrypoint.sh"]

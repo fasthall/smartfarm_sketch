@@ -1,5 +1,9 @@
 #!/bin/sh
 
+mkdir $SMARTFARM/tmp
+mkdir $SMARTFARM/tmp/core
+mkdir $SMARTFARM/tmp/preproc
+
 echo "Detecting libraries used..."
 avr-g++ -c -g -Os -w -std=gnu++11 -fpermissive -fno-exceptions -ffunction-sections -fdata-sections -fno-threadsafe-statics  -flto -w -x c++ -E -CC -mmcu=atmega328p -DF_CPU=8000000L -DARDUINO=10611 -DARDUINO_AVR_SMART_FARM -DARDUINO_ARCH_AVR   "-I$SMARTFARM/include/cores/smartfarm" "-I$SMARTFARM/include/variants/smartfarm" "$1" -o "nul"
 avr-g++ -c -g -Os -w -std=gnu++11 -fpermissive -fno-exceptions -ffunction-sections -fdata-sections -fno-threadsafe-statics  -flto -w -x c++ -E -CC -mmcu=atmega328p -DF_CPU=8000000L -DARDUINO=10611 -DARDUINO_AVR_SMART_FARM -DARDUINO_ARCH_AVR   "-I$SMARTFARM/include/cores/smartfarm" "-I$SMARTFARM/include/variants/smartfarm" "$1" -o "nul"
